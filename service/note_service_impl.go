@@ -33,6 +33,12 @@ func (n *NoteServiceImpl) Create(note request.CreateNoteRequest) {
 	n.NoteRepository.Save(noteModel)
 }
 
+// Remove implements NoteService
+func (n *NoteServiceImpl) Remove(noteId int) {
+	//panic("unimplemented")
+	n.NoteRepository.Remove(noteId)
+}
+
 // Delete implements NoteService
 func (n *NoteServiceImpl) Delete(noteId int) {
 	//panic("unimplemented")

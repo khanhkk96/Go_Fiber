@@ -17,6 +17,14 @@ type NoteRepositoryImpl struct {
 func (n *NoteRepositoryImpl) Delete(noteId int) {
 	//panic("unimplemented")
 	var note model.Note
+	result := n.Db.Where("id = ?", noteId).Unscoped().Delete(&note)
+	helper.ErrorPanic(result.Error)
+}
+
+// Delete implements NoteRepository
+func (n *NoteRepositoryImpl) Remove(noteId int) {
+	//panic("unimplemented")
+	var note model.Note
 	result := n.Db.Where("id = ?", noteId).Delete(&note)
 	helper.ErrorPanic(result.Error)
 }

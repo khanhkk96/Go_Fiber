@@ -58,6 +58,22 @@ func (controller *NoteController) Update(ctx *fiber.Ctx) error {
 	return ctx.Status(fiber.StatusOK).JSON(webResponse)
 }
 
+func (controller *NoteController) Remove(ctx *fiber.Ctx) error {
+	noteId := ctx.Params("noteId")
+	id, err := strconv.Atoi(noteId)
+	helper.ErrorPanic(err)
+
+	controller.noteService.Remove(id)
+
+	webResponse := response.Response{
+		Code:    200,
+		Status:  "Ok",
+		Message: "Successfully removed note data!",
+		Data:    nil,
+	}
+	return ctx.Status(fiber.StatusOK).JSON(webResponse)
+}
+
 func (controller *NoteController) Delete(ctx *fiber.Ctx) error {
 	noteId := ctx.Params("noteId")
 	id, err := strconv.Atoi(noteId)

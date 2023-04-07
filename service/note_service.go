@@ -8,6 +8,7 @@ import (
 type NoteService interface {
 	Create(note request.CreateNoteRequest)
 	Update(note request.UpdateNoteRequest)
+	Remove(noteId int)
 	Delete(noteId int)
 	FindById(noteId int) response.NoteResponse
 	FindAll() []response.NoteResponse
