@@ -5,6 +5,6 @@ type CreateNoteRequest struct {
 }
 
 type UpdateNoteRequest struct {
-	Id      int    `validate:"required" json:"id"`
+	Id      int    `validate:"required"`
 	Content string `validate:"required,min=2,max=200" json:"content"`
 }

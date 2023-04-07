@@ -38,7 +38,7 @@ func (controller *NoteController) Create(ctx *fiber.Ctx) error {
 
 func (controller *NoteController) Update(ctx *fiber.Ctx) error {
 	updateNoteRequest := request.UpdateNoteRequest{}
-	err := ctx.BodyParser(updateNoteRequest)
+	err := ctx.BodyParser(&updateNoteRequest)
 	helper.ErrorPanic(err)
 
 	noteId := ctx.Params("noteId")
